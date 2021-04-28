@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "MeuPrimeiroAPP",
+    "slug": "MeuPrimeiroAPP",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/homem-empurrando.png",
+    "splash": {
+      "image": "./assets/homem-empurrando.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/homem-empurrando.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/carrinho-de-compras.png"
+    }
+  }
+}

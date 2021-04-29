@@ -4,6 +4,7 @@ export default StyleSheet.create({
     container: {
         paddingHorizontal: 20,
         width: '100%'
+        
       },
       buttonContainer: {
         marginTop: 15,
@@ -33,34 +34,13 @@ export default StyleSheet.create({
         },
         listItem: {
           fontSize: 16
-        },
-
-        clienteListContainer:{
-            marginBottom: 25,
-            elevation: 4,
-            backgroundColor: "white",
-            padding: 10,
-            borderRadius: 6,
-            borderTopWidth: 1,
-            borderColor: "rgba(0,0,0,0.1)",
-            width: '100%'
-        },
-
-         FornecedorListContainer:{
-            marginBottom: 25,
-            elevation: 4,
-            backgroundColor: "white",
-            padding: 10,
-            borderRadius: 6,
-            borderTopWidth: 1,
-            borderColor: "rgba(0,0,0,0.1)",
-            width: '100%'
+      
         },
 
         funcionarioListContainer:{
             marginBottom: 25,
             elevation: 4,
-            backgroundColor: "white",
+            backgroundColor: "gold",
             padding: 10,
             borderRadius: 6,
             borderTopWidth: 1,
@@ -71,7 +51,7 @@ export default StyleSheet.create({
           produtoListContainer: {
           marginBottom: 25,
           elevation: 4,
-          backgroundColor: "white",
+          backgroundColor: "gold",
           padding: 10,
           borderRadius: 6,
           borderTopWidth: 1,

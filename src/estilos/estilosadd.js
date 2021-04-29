@@ -3,9 +3,10 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:'beige',
+        backgroundColor:'silver',
         alignItems: 'center',
         justifyContent: 'center'
+        
     },
     title:{
       fontWeight: "bold",

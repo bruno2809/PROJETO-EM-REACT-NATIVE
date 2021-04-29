@@ -4,12 +4,7 @@ import styles from '../../estilos/estiloseditar';
 import { Modal, View,Text,TextInput,StyleSheet,TouchableOpacity} from 'react-native';
 
 const EditarProduto = (props) => {
-    const initialProdutoState = {
-        name: "",
-        codigo: "",
-        fornecedor: "",
-        preco:""
-      };
+    const initialProdutoState = { name: "",codigo: "",fornecedor: "", preco:""  };
 
     const [produto, setProduto] = useState(initialProdutoState);
     const { isOpen, closeModal } = props;

@@ -11,7 +11,7 @@ function HomeScreen({ navigation }) {
           animated={true}
           />
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Menu </Text>
+            <Text>Menu</Text>
             <Text/>  
             <Button
             onPress={() => navigation.navigate('Funcionarios')}

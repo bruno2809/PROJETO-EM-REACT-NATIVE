@@ -67,7 +67,7 @@ function ListFuncionario({}) {
   return(
     <ScrollView>
       <View style={styles.container}>
-          <Text style={styles.title}>Lista de Funcionários: </Text>
+          <Text style={styles.title}>Lista de Promotores: </Text>
 
           <TouchableOpacity
             onPress={toggleAddFuncionario}

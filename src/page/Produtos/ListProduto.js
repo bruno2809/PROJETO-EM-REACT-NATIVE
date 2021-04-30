@@ -5,10 +5,11 @@ import DeleteProduto from './DeleteProduto'
 import EditarProduto from './EditarProduto'
 import styles from '../../estilos/estiloslist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { TabRouter } from '@react-navigation/routers';
+import { TextInput } from 'react-native';
 
 function ListProduto({}) {
 
-  
   const [isAddProdutoModalOpen, setIsAddProdutoModalOpen] = useState(false)
   const [isDeleteProdutoModalOpen, setIsDeleteProdutoModalOpen] = useState(false)
   const [isEditarProdutoModalOpen, setIsEditarProdutoModalOpen] = useState(false)
@@ -65,6 +66,7 @@ function ListProduto({}) {
      saveproduto();
     
     } ,[produto]);
+    
   return(
     <ScrollView>
       <View style={styles.container}>
@@ -76,14 +78,13 @@ function ListProduto({}) {
           >
             <Text style={styles.buttonText}>Adicionar produto</Text>
             </TouchableOpacity>          
-            
             {produto.map((data, index) => 
               <View style={styles.produtoListContainer}key={index}>
+                
                 <Text style={styles.name}>{data.name}</Text>
                 <Text style={styles.listItem}>CODIGO: {data.codigo}</Text>
                 <Text style={styles.listItem}>FORNECEDOR: {data.fornecedor}</Text>
                 <Text style={styles.listItem}>PRECO: {data.preco}</Text>
-
                 <View style={styles.buttonContainer}>
                   <TouchableOpacity
                     onPress={() => {

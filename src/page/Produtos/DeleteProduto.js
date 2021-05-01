@@ -27,7 +27,7 @@ const DeleteProduto = (props) => {
         >
             <View style={styles.BackgroundContainer}>
                 <View style={styles.container}>
-                    <Text style={styles.title}>Deseja excluir o produto ({selectedProduto.name})?</Text>
+                    <Text style={styles.title}>Deseja excluir o produto ?</Text>
                     <Text style={styles.subTitle}>Se deseja excluir o produto aperte o botão OK.</Text>
 
                     <View style={styles.buttonContainer}>

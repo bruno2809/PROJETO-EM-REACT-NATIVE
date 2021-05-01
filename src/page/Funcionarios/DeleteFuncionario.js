@@ -21,7 +21,7 @@ const DeleteFuncionario = (props) => {
         >
             <View style={styles.BackgroundContainer}>
                 <View style={styles.container}>
-                    <Text style={styles.title}>Deseja excluir o funcionário ({selectedFuncionario.matricula})?</Text>
+                    <Text style={styles.title}>Deseja excluir o funcionário ?</Text>
                     <Text style={styles.subTitle}>Aperte o botão OK.</Text>
 
                     <View style={styles.buttonContainer}>

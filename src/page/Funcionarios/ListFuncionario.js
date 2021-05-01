@@ -1,12 +1,15 @@
 import React, {useState,useEffect} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View,Button, TouchableOpacity, ScrollView } from 'react-native';
 import AddFuncionario from './AddFuncionario'
 import DeleteFuncionario from './DeleteFuncionario'
 import EditarFuncionario from './EditarFuncionario'
 import styles from '../../estilos/estiloslist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-function ListFuncionario({}) {
+import { useNavigation } from '@react-navigation/native';
+import ListaDeProdutos from '../Produtos/ListProduto'
+function ListFuncionario({navigation}) {
 
+  const navigate = useNavigation();
   const [isAddFuncionarioModalOpen, setIsAddFuncionarioModalOpen] = useState(false)
   const [isDeleteFuncionarioModalOpen, setIsDeleteFuncionarioModalOpen] = useState(false)
   const [isEditarFuncionarioModalOpen, setIsEditarFuncionarioModalOpen] = useState(false)
@@ -99,13 +102,27 @@ function ListFuncionario({}) {
                       toggleDeleteFuncionarioModal();
                       setSelectedFuncionario(data)
                     }}
-                    style={{ ...styles.button, marginVertical: 0, marginLeft: 10, backgroundColor: "tomato" }}>
+                    style={{ ...styles.button, marginVertical: 0, marginLeft: 10,marginRight:10, backgroundColor: "tomato" }}>
                     <Text style={styles.buttonText}>Delete</Text>
+                  </TouchableOpacity>
+                  
+                
+
+                  <TouchableOpacity>
+                    
+                  <Button 
+                   onPress={() => navigation.navigate('Produto')}
+                   title="Ver seus produtos"
+                   color="blue"
+                   
+                   />
                   </TouchableOpacity>
                 </View>
 
               </View>
-            )}        
+            )
+
+            }       
 
           {isAddFuncionarioModalOpen ? <AddFuncionario
             isOpen={isAddFuncionarioModalOpen}

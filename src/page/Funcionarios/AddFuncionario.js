@@ -4,12 +4,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import styles from '../../estilos/estilosadd'
 
 const AddFuncionario = (props) => {
-  const initialFuncionarioState = {
-    name: "",
-    matricula: "",
-    cpf: "",
-    telefone: "",
-    endereco: ""
+  const initialFuncionarioState = { name: "", matricula: "", cpf: "", telefone: "",endereco: ""
   }
 
   const [funcionario, setFuncionario] = useState(initialFuncionarioState)
@@ -32,6 +27,7 @@ const AddFuncionario = (props) => {
         animationType="slide"
     >
         <View style={styles.container}>
+          
           <Text style={styles.title}>Adicionar Promotor </Text>
           <TextInput
             placeholder="Digite o Nome: "
@@ -65,7 +61,7 @@ const AddFuncionario = (props) => {
             style={styles.textBox}
             onChangeText={(text) => handleChange(text, "endereco")}
           />
-
+           
           <View style={styles.buttonContainer}>
           <TouchableOpacity
             onPress={addFuncionario}

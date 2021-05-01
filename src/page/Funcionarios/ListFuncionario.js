@@ -112,7 +112,7 @@ function ListFuncionario({navigation}) {
                     
                   <Button 
                    onPress={() => navigation.navigate('Produto')}
-                   title="Ver seus Produtos"
+                   title="Ver seus produtos"
                    color="blue"
                    
                    />

@@ -102,21 +102,15 @@ function ListFuncionario({navigation}) {
                       toggleDeleteFuncionarioModal();
                       setSelectedFuncionario(data)
                     }}
-                    style={{ ...styles.button, marginVertical: 0, marginLeft: 10,marginRight:10, backgroundColor: "tomato" }}>
+                    style={{ ...styles.button, marginVertical: 0, marginLeft: 10,marginRight: 10, backgroundColor: "tomato" }}>
                     <Text style={styles.buttonText}>Delete</Text>
                   </TouchableOpacity>
-                  
-                
-
-                  <TouchableOpacity>
-                    
-                  <Button 
-                   onPress={() => navigation.navigate('Produto')}
-                   title="Ver seus produtos"
+              
+                  <Button
+                   onPress={() => navigation.navigate('Produtos')}
+                   title="Lista de Protudos"
                    color="blue"
-                   
                    />
-                  </TouchableOpacity>
                 </View>
 
               </View>

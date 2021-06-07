@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View, Modal, TouchableOpacity, AsyncStorage } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import styles from '../../estilos/estilosadd'
+import FuncionarioService from '../../../services/FuncionarioService'
+
 
 const AddFuncionario = (props) => {
   const initialFuncionarioState = { name: "", matricula: "", cpf: "", telefone: "",endereco: ""
@@ -9,14 +11,36 @@ const AddFuncionario = (props) => {
 
   const [funcionario, setFuncionario] = useState(initialFuncionarioState)
   const { isOpen, closeModal } = props
+  const [errorMessage, setErrorMessage] = useState("")
 
   const handleChange = (value, matricula) => {
     setFuncionario( {...funcionario, [matricula]: value})
   }
 
   const addFuncionario = async () => {
-    props.addFuncionario(funcionario) 
-    props.closeModal();
+    
+    const data = {
+      name: funcionario.name, 
+      matricula: funcionario.matricula, 
+      cpf: funcionario.cpf, 
+      telefone: funcionario.telefone,
+      endereco: funcionario.endereco
+    }
+    FuncionarioService.create(data)
+            .then( res => {
+              props.addFuncionario({
+                   name: res.data.name, 
+                   matricula: res.data.matricula, 
+                   cpf: res.data.cpf, 
+                   telefone: res.data.telefone,
+                   endereco: res.data.endereco,
+                   id: res.data.id
+              }) 
+              props.closeModal();
+            })
+            .catch(
+              setErrorMessage("Error ao se conectar com API.")
+            )
 
   }
 

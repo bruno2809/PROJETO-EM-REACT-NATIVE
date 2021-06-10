@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Modal, TouchableOpacity, AsyncStorage } from 'r
 import { TextInput } from 'react-native-gesture-handler';
 import styles from '../../estilos/estilosadd'
 import FuncionarioService from '../../../services/FuncionarioService'
-
+import {FuncionarioContext} from "../FuncionarioContext"
 
 const AddFuncionario = (props) => {
   const initialFuncionarioState = { name: "", matricula: "", cpf: "", telefone: "",endereco: ""
@@ -18,7 +18,7 @@ const AddFuncionario = (props) => {
   }
 
   const addFuncionario = async () => {
-    
+    //API
     const data = {
       name: funcionario.name, 
       matricula: funcionario.matricula, 
@@ -35,12 +35,12 @@ const AddFuncionario = (props) => {
                    telefone: res.data.telefone,
                    endereco: res.data.endereco,
                    id: res.data.id
-              }) 
+              })
               props.closeModal();
             })
-            .catch(
-              setErrorMessage("Error ao se conectar com API.")
-            )
+            .catch( err=>{
+              setErrorMessage("Erro a se conectar com API. ")
+            })
 
   }
 

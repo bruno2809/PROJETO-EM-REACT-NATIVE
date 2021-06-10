@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState,useEffect, useContext, useContext} from 'react';
 import { StyleSheet, Text, View,Button, TouchableOpacity, ScrollView } from 'react-native';
 import AddFuncionario from './AddFuncionario'
 import DeleteFuncionario from './DeleteFuncionario'
@@ -7,6 +7,10 @@ import styles from '../../estilos/estiloslist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import ListaDeProdutos from '../Produtos/ListProduto'
+import FuncionarioService from "../../../services/FuncionarioService"
+import { ScrollViewBase } from 'react-native';
+import {FuncionarioContext} from "../FuncionarioContext"
+
 function ListFuncionario({navigation}) {
 
   const navigate = useNavigation();
@@ -14,8 +18,23 @@ function ListFuncionario({navigation}) {
   const [isDeleteFuncionarioModalOpen, setIsDeleteFuncionarioModalOpen] = useState(false)
   const [isEditarFuncionarioModalOpen, setIsEditarFuncionarioModalOpen] = useState(false)
   const [funcionario, setFuncionario] = useState([])
-  const [selectedFuncionario, setSelectedFuncionario] = useState(false)
-
+  //const [selectedFuncionario, setSelectedFuncionario] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
+  const [funcionario , setFuncionario] = useContext(FuncionarioContext)
+  //API
+  useEffect (() =>{
+    //getData()
+  })
+  const getData = () => {
+    setErrorMessage("")
+    FuncionarioService.getAll()
+            .then(res => {
+                setFuncionario(res.data)
+            })
+            .catch (err => {
+              setErrorMessage("Falha ao se conectar com a API")
+            })
+  }
 
   const toggleAddFuncionario = () => {
     setIsAddFuncionarioModalOpen(!isAddFuncionarioModalOpen)
@@ -91,7 +110,7 @@ function ListFuncionario({navigation}) {
                   <TouchableOpacity
                     onPress={() => {
                       toggleEditarFuncionarioModal();
-                      setSelectedFuncionario(data)
+                      setFuncionario(data)
                     }}
                     style={{ ...styles.button, marginVertical: 0 }}>
                     <Text style={styles.buttonText}>Editar</Text>
@@ -100,7 +119,7 @@ function ListFuncionario({navigation}) {
                   <TouchableOpacity
                     onPress={() => {
                       toggleDeleteFuncionarioModal();
-                      setSelectedFuncionario(data)
+                      setFuncionario(data)
                     }}
                     style={{ ...styles.button, marginVertical: 0, marginLeft: 10,marginRight: 10, backgroundColor: "tomato" }}>
                     <Text style={styles.buttonText}>Delete</Text>
@@ -114,9 +133,10 @@ function ListFuncionario({navigation}) {
                 </View>
 
               </View>
-            )
-
-            }       
+            )}  
+            {
+              errorMessage !== "" ? <Text>{errorMessage}</Text> : null
+            }     
 
           {isAddFuncionarioModalOpen ? <AddFuncionario
             isOpen={isAddFuncionarioModalOpen}
@@ -127,14 +147,14 @@ function ListFuncionario({navigation}) {
           {isEditarFuncionarioModalOpen ? <EditarFuncionario
             isOpen={isEditarFuncionarioModalOpen}
             closeModal={toggleEditarFuncionarioModal}
-            selectedFuncionario={selectedFuncionario}
+            //selectedFuncionario={selectedFuncionario}
             updateFuncionario={updateFuncionario}
           /> : null}
 
           {isDeleteFuncionarioModalOpen ? <DeleteFuncionario
             isOpen={isDeleteFuncionarioModalOpen}
             closeModal={toggleDeleteFuncionarioModal}
-            selectedFuncionario={selectedFuncionario}
+            //selectedFuncionario={selectedFuncionario}
             deleteFuncionario={deleteFuncionario}
           /> : null}
 

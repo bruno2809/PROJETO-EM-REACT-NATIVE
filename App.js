@@ -5,7 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from './src/page/home/HomeScreen'
 import ListFuncionario from './src/page/Funcionarios/ListFuncionario'
 import ListProduto from './src/page/Produtos/ListProduto'
-
+import {FuncionarioProvider} from "./src/page/FuncionarioContext"
+import {ProdutosProvider} from "./src/page/ProdutosContext"
 const options = {
   headerLeft: () => (
     <TouchableOpacity onPress={navigation.openDrawer}>

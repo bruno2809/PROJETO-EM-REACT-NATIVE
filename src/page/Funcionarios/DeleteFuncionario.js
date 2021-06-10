@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import styles from '../../estilos/estilosdelete';
+import FuncionarioService from "../../../services/FuncionarioService";
+import {FuncionarioContext} from "../FuncionarioContext"
 
 import {  Modal,View,Text, StyleSheet, TouchableOpacity} from 'react-native';
-
+//API
 const DeleteFuncionario = (props) => {
 
     const { isOpen, closeModal, selectedFuncionario } = props;
+    const [funcionario , setFuncionario] = useContext(FuncionarioContext)
 
     const deleteFuncionario = () => {
-      props.deleteFuncionario(props.selectedFuncionario.matricula);
-      props.closeModal();
+    
+      const id =props.selectedFuncionario.id
+      FuncionarioService.remove(id) 
+                .then(res => {
+                    props.deleteFuncionario(props.selectedFuncionario.matricula);
+                    props.closeModal();
+                })
     }
 
     return (

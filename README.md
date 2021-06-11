@@ -1,4 +1,4 @@
 ﻿# PROJETO-EM-REACT
 
-https://www.youtube.com/watch?v=VQO0iBTDvog
+https://youtu.be/quJ2yhDDtPk
 GITHUB : Bruno2809
